@@ -170,6 +170,7 @@ INTERNAL_LINKAGE void auto_yellowred(void) {
 
 INTERNAL_LINKAGE void mode_2(void) {
     static int32_t red_light_duration_temp = 1;
+    red_light_duration_temp = red_light_duration;
     seven_seg_buffer = (buffer_wrapper_t){{red_light_duration_temp / 10, 2, red_light_duration_temp % 10, 2}};
     if(timer4_flag) {
         setTimer4(timer_scaler(500, interrupt_period));
@@ -208,6 +209,7 @@ INTERNAL_LINKAGE void mode_2(void) {
 
 INTERNAL_LINKAGE void mode_3(void) {
     static int32_t yellow_light_duration_temp = 1;
+    yellow_light_duration_temp = yellow_light_duration;
     seven_seg_buffer = (buffer_wrapper_t){{yellow_light_duration_temp / 10, 3, yellow_light_duration_temp % 10, 3}};
     if(timer4_flag) {
         setTimer4(timer_scaler(500, interrupt_period));
@@ -246,6 +248,7 @@ INTERNAL_LINKAGE void mode_3(void) {
 
 INTERNAL_LINKAGE void mode_4(void) {
     static int32_t green_light_duration_temp = 1;
+    green_light_duration_temp = green_light_duration;
     seven_seg_buffer = (buffer_wrapper_t){{green_light_duration_temp / 10, 4, green_light_duration_temp % 10, 4}};
     if(timer4_flag) {
         setTimer4(timer_scaler(500, interrupt_period));
